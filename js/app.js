@@ -68,6 +68,10 @@ $(document).ready(function(){
 
 	$('#lotr-fill').click(function(){
 		console.log("autofill clicked");
+		// Destructure elements
+		let {$name, $verb1, $mission, $sentiment, $noun1, $adjectives, $noun2} = $formElements;
+		console.log($name);
+		
 
 	});
 
