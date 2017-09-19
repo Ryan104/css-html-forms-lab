@@ -5,6 +5,19 @@ $(document).ready(function(){
 	$( "<section class='container results'></section>" ).appendTo(main);
 	var $results = $('.results');
 
+	// form elements
+	let $formElements = {
+		name: $('input[name=name]'),
+		verb1: $('select[name=verb-1'),
+		mission: $('textarea[name=mission]'),
+		sentiment: $('input[name=sentiment]'),
+		noun1: $('input[name=noun-1]'),
+		adjectives: $('input[name=adjective-2]'),
+		noun2: $('input[name=noun-2]')
+	};
+
+	
+
 
 	function makeResults() {
 		// Clear any old content
@@ -15,15 +28,15 @@ $(document).ready(function(){
 
 		// Get all form data
 		const madLibs = {
-			name: $('input[name=name]').val(),
-			verb1: $('select[name=verb-1').val(),
-			mission: $('textarea[name=mission]').val(),
-			sentiment: $('input[name=sentiment]:checked').val(),
-			noun1: $('input[name=noun-1]').val(),
-			adjectives: $('input[name=adjective-2]:checked')
+			name: $formElements.name.val(),
+			verb1: $formElements.verb1.val(),
+			mission: $formElements.mission.val(),
+			sentiment: $formElements.sentiment.filter(':checked').val(), //filter finds checked radios
+			noun1: $formElements.noun1.val(),
+			adjectives: $formElements.adjectives.filter(':checked')
 				.map(function(){return this.value})
 				.get().join(", "),
-			noun2: $('input[name=noun-2]').val()
+			noun2: $formElements.noun2.val()
 		};
 
 		console.log(madLibs);
@@ -51,21 +64,11 @@ $(document).ready(function(){
 		// Run the 'makeResults' function seen above
 		makeResults();
 
-		/*
-		
-			For each value entered into a form input, add the input to the corresponding sentence, then append the text into the results section:
+	});
 
-			"Once upon a time there was a Developer named NAME."
+	$('#lotr-fill').click(function(){
+		console.log("autofill clicked");
 
-			"NAME came to General Asssembly to VERB1 the great mountain of programming knowledge."
-
-			""MISSION", NAME shouted."
-
-			"Though SENTIMENT, NAME was able to overcome all obstacles with the power of their NOUN."
-
-			"In the end, their success can be contributed entirely to their " + ADJECTIVE2[list each one checked, comma-separated] + NOUN2."
-
-		*/ 
 	});
 
 });
