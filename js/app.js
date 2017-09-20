@@ -2,8 +2,10 @@ $(document).ready(function(){
 	console.log('document ready!');
 
 	var main = $('#main');
-	$( "<section class='container results'></section>" ).appendTo(main);
+	$( "<section class='container results'></section>" ).appendTo(main).hide();
 	var $results = $('.results');
+
+	
 
 	// form elements
 	const $formElements = {
@@ -23,8 +25,11 @@ $(document).ready(function(){
 		// Clear any old content
 		$results.empty();
 
+		// Show the resutls section
+		$results.show();
+
 		// Append story header
-		$results.append('<h1>A True Story:</h1>');
+		$results.append('<h2>A True Story:</h2>');
 
 		// Get all form data
 		const madLibs = {
