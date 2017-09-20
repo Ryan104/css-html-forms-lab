@@ -5,7 +5,7 @@ $(document).ready(function(){
 	$( "<section class='container results'></section>" ).appendTo(main).hide();
 	var $results = $('.results');
 
-	
+
 
 	// form elements
 	const $formElements = {
@@ -68,6 +68,8 @@ $(document).ready(function(){
 
 		// Run the 'makeResults' function seen above
 		makeResults();
+
+		$('body').scrollTop(0);
 
 	});
 

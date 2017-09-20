@@ -24,6 +24,7 @@ h1 {
 }
 
 .container {
+	margin: 10px;
 	display: inline-block;
 	float: left;
 
@@ -62,17 +63,22 @@ h1 {
 	margin-left: 30px;
 }
 
-input, select, textarea {
+input, 
+select, 
+textarea {
 	border: 1px solid #ccc;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus, 
+select:focus, 
+textarea:focus {
 	outline: none;
 	border-color: #777;
 	border-width: 3px;
 }
 
-input, select {
+input, 
+select {
 	height: 48px;
 	padding: 14px;
 }
